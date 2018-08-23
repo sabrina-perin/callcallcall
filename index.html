@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<title>odeio fisica</title>
+</head>
+<body>
+
+INSERIR VALORES NAS UNIDADES SI: METROS POR SEGUNDOS
+<p></p>
+
+<div class= "container">
+  <div class="row">
+    <div class="input-field col s6">
+      <input id="veloMed" type="text" class="validate">
+      <label class="active" for="veloMed">Velocidade Média</label>
+    </div>
+  </div>
+          <div class="row">
+    <div class="input-field col s6">
+      <input id="dist" type="text" class="validate">
+      <label class="active" for="dist">Distância</label>
+    </div>
+  </div>
+          <div class="row">
+    <div class="input-field col s6">
+      <input id="tempo" type="text" class="validate">
+      <label class="active" for="tempo">Tempo</label>
+    </div>
+  </div>
+
+   <button onclick="calcular()" class="btn waves-effect waves-light" type="submit" name="action">Calcular  </button>
+  
+  <br>
+
+  <span id="vanzinho"> </span>      
+  </div>
+
+<script type="text/javascript">
+
+	var veloMed = document.getElementById("veloMed");
+	var dist = document.getElementById("dist");
+	var tempo = document.getElementById("tempo");
+
+	function calcular(){
+
+		var veMe = parseFloat(veloMed.value)
+		var dista = parseFloat(dist.value)
+		var temp = parseFloat(tempo.value)
+		var tnc = document.getElementById("vanzinho")
+		var conta;
+		if(isNaN(veMe)) {
+			conta = dista / temp;
+			var arredondado1 = parseFloat(conta.toFixed(2));
+			tnc.innerHTML= arredondado1 +"m/s"
+
+		}
+
+		if (isNaN(dista)){
+			var conta2 =  temp * veMe;
+			var arredondado2 = parseFloat(conta2.toFixed(2));
+			tnc.innerHTML= "" + arredondado2 + "m"
+		} 
+		if (isNaN(temp)){
+			var conta3 = dista / veMe;
+			var arredondado3 = parseFloat(conta3.toFixed(2));
+			tnc.innerHTML= arredondado3 + "s"	
+		}
+
+	}
+</script>
+
+
+<script type="text/javascript" src="js/materialize.min.js">
+
+</script>
+
+</body>
+</html>
